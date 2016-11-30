@@ -1,0 +1,26 @@
+<launch>
+	<!-- launch xbot_bringup -->
+	<include file="$(find xbot_bringup)/launch/xbot_minimal.launch">
+	</include>
+
+	<!-- marker for clicked point -->
+	<!-- <node name="ui_marker" pkg="xbot_cruise" type="ui_marker.py" /> -->
+
+	<!-- map server -->
+	<!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find xbot_cruise)/map/xlab-office.yaml" /> -->
+
+	<!-- fake tf -->
+	<node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 0 /map /odom 100" />
+
+	<!-- loop control -->
+	<!-- <node name="loop_control" pkg="own_ros_tools" type="loop_control.py"/> -->
+
+
+	<!-- RVIZ -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find mapping_xbot)/rviz/mapping_xbot.rviz" />
+
+
+
+
+
+</launch>
